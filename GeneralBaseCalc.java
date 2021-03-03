@@ -1,10 +1,13 @@
 import java.util.HashMap;
 
 
-public class HexCalc {
-    HashMap<Integer,String> decToHexa = new HashMap<Integer,String>();
+public class GeneralBaseCalc {
+	int base ;
+	HashMap<Integer,String> decToHexa = new HashMap<Integer,String>();
     HashMap<Character,Integer> hexaToDec = new HashMap<Character,Integer>();
-    HexCalc(){
+    GeneralBaseCalc(int base){
+    	this.base = base;
+    	
         decToHexa.put(10,"A");
         decToHexa.put(11,"B");
         decToHexa.put(12,"C");    
@@ -23,37 +26,37 @@ public class HexCalc {
     /**
      * @param num1
      * @param num2
-     * @return addition of num1 & num2
+     * @return Addition of num1 & num2
      */
     public String add(String num1,String num2){
         int first = toDecimal(num1);
         int second = toDecimal(num2);
         
-        return toHexaDecimal(first + second);
+        return toOtherBase(first + second);
     }
 
     /**
      * @param num1
      * @param num2
-     * @return multiplication of num1 & num2
+     * @return Multiplication of num1 & num2
      */
     public String multiply(String num1,String num2){
         int first = toDecimal(num1);
         int second = toDecimal(num2);
         
-        return toHexaDecimal(first * second);
+        return toOtherBase(first * second);
     }
-    
+
     /**
      * @param num1
      * @param num2
-     * @return subtraction of num1 & num2
+     * @return Subtraction of num1 & num2
      */
     public String subtract(String num1,String num2){
         int first = toDecimal(num1);
         int second = toDecimal(num2);
         
-        return toHexaDecimal(first - second);
+        return toOtherBase(first - second);
     }
 
     /**
@@ -65,26 +68,27 @@ public class HexCalc {
         int first = toDecimal(num1);
         int second = toDecimal(num2);
         
-        return toHexaDecimal(first / second);
+        return toOtherBase(first / second);
     }
     
     /**
-     * function to convert number to HexaDecimal
+     * function to convert number to general Base
      * @param number
-     * @return String representation of number in HexaDecimal
+     * @return String representation of number in general Base arithmetic
      */
-    public String toHexaDecimal(int number){
-        String ans = "";
+    public String toOtherBase(int number){
+    	String ans = "";
         while(number > 0){
-            int rem = number%16;
+            int rem = number%base;
             ans += rem > 9 ? decToHexa.get(rem) : Integer.toString(rem);
-            number = number / 16;
+            number = number / base;
         }
         
         StringBuilder sb = new StringBuilder(ans);
         sb.reverse();
         return sb.toString();
     }
+    
     
     /**
      * function to convert in Decimal
@@ -100,7 +104,7 @@ public class HexCalc {
             else
                 ans += exp * hexaToDec.get(number.charAt(i));
             
-            exp *= 16;
+            exp *= this.base;
         
 
         }

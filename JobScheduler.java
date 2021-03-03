@@ -10,6 +10,10 @@ public class JobScheduler{
     	noOfProcess = n;
     }
     
+    /**
+     * function to fetch time for each process when it enter's in system for execution
+     * @return array of integer
+     */
     int[] fetchEnterTime(){
         int[] enterList;
         enterList = new int[noOfProcess];
@@ -32,6 +36,10 @@ public class JobScheduler{
         return enterList;
     }
     
+    /**
+     * function to fetch waiting time for each process 
+     * @return array of integer
+     */
     int[] fetchWaitingTime(){
         int[] waitingTimeList;
         int[] enterTime;
@@ -43,6 +51,10 @@ public class JobScheduler{
         return waitingTimeList;
     }
     
+    /**
+     * function to fetch Completion time for each process 
+     * @return array of integer
+     */
     int[] fetchCompletionTime(){
         int[] completionTimeList;
         int[] enterTime;
@@ -54,6 +66,10 @@ public class JobScheduler{
         return completionTimeList;
     }
     
+    /**
+     * function to fetch Turn Around time for each process 
+     * @return array of integer
+     */
     int[] fetchTurnAroundTime(){
         int[] turnAroundTimeList;
         int[] completionTime;
@@ -65,6 +81,10 @@ public class JobScheduler{
         return turnAroundTimeList;
     }
     
+    /**
+     * function to fetch Average waiting time  
+     * @return float value 
+     */
     float fetchAverageWaitingTime(){
         int[] waitingTimeList = fetchWaitingTime();
         float ans = 0;
@@ -74,6 +94,10 @@ public class JobScheduler{
         return ans/noOfProcess;
     }
     
+    /**
+     * function to fetch Maximum waiting time  
+     * @return int value 
+     */
     int fetchMaximumWaitingTime(){
         int[] waitingTimeList = fetchWaitingTime();
         int maxWaitingTime = 0;
