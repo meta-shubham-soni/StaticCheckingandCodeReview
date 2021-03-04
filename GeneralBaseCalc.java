@@ -91,7 +91,7 @@ public class GeneralBaseCalc {
     
     
     /**
-     * function to convert in Decimal
+     * function to convert number in Decimal
      * @param number
      * @return integer representation in Decimal
      */
