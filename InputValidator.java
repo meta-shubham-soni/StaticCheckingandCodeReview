@@ -1,6 +1,7 @@
 
 public class InputValidator {
 	
+	//to check if val is Integer value
 	public static boolean isInt(String val){
 	    try
 	    {
@@ -14,6 +15,7 @@ public class InputValidator {
 	    
 	}
 	
+	//to check if val is Number(Decimal , Octal , HexaDecimal , Binary)
 	public static boolean isNumber(String val){
 		
 		for(int i=0;i<val.length();i++){
