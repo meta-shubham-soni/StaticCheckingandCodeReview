@@ -2,7 +2,7 @@ import java.util.HashMap;
 
 
 public class GeneralBaseCalc {
-	int base ;
+	int base;
 	HashMap<Integer,String> decToHexa = new HashMap<Integer,String>();
     HashMap<Character,Integer> hexaToDec = new HashMap<Character,Integer>();
     GeneralBaseCalc(int base){
@@ -72,7 +72,7 @@ public class GeneralBaseCalc {
     }
     
     /**
-     * function to convert number to general Base
+     * function to convert number to general Base arithmetic
      * @param number
      * @return String representation of number in general Base arithmetic
      */
